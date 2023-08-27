@@ -17,6 +17,9 @@ function App() {
         >
           Learn React
         </a>
+        <div>
+          <h1>Is this new page how fast this is to work</h1>
+        </div>
       </header>
     </div>
   );
