@@ -12,3 +12,25 @@
 3. [code coverage codecov](https://app.codecov.io/gh/deveshksrivastava/react-docker/new)
 
 4. [github action](https://dev.to/dyarleniber/setting-up-a-ci-cd-workflow-on-github-actions-for-a-react-app-with-github-pages-and-codecov-4hnp)
+
+fixing error :
+
+Run aws s3 sync build/ s3://your-bucket-name --delete
+fatal error: An error occurred (AllAccessDisabled) when calling the ListObjectsV2 operation: All access to this object has been disabled
+
+https://www.youtube.com/watch?v=-ZiirF7ap5U
+
+```
+{
+"Version": "2012-10-17",
+"Id": "PutObjPolicy",
+"Statement": [{
+  "Sid": "PublicReadGetObject",
+  "Principal": "*",
+  "Effect": "Allow",
+  "Action": "s3:GetObject",
+  "Resource": "arn:aws:s3:::react-action-s3-bucket-app/*"
+ }]
+}
+
+```
