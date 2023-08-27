@@ -59,6 +59,6 @@ jobs:
 
       - name: Deploy application
         run: |
-          aws s3 sync build/ s3://your-bucket-name --delete
+          aws s3 sync build/ s3://react-action-s3-bucket-app --delete
           aws cloudfront create-invalidation --distribution-id your-distribution-id --paths '/*'
           
