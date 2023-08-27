@@ -46,6 +46,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - build
       - name: Install Unit test
         run: npm test
 
