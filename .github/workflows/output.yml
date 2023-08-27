@@ -1,4 +1,4 @@
-name: Output information 
+name: Output information
 on: [push, workflow_dispatch] # adding manual workflow
 
 jobs:
@@ -7,5 +7,5 @@ jobs:
   steps:
     - name: Output github context
       run: |
-        echo "${{ github}}
-        echo "${{ env }}
+        # echo "${{ toJson(github)}}
+        echo "${{ toJson(env) }}

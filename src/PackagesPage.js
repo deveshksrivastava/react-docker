@@ -16,6 +16,6 @@ const PackagesPage = () => {
       </div>
     </div>
   );
-}
+};
 
 export default PackagesPage;
