@@ -1,26 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+// import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>
-          <h1>Is this new page how fast this is to work</h1>
-        </div>
+    <div className="homepage">
+      <header>
+        <h1>Welcome to Adventure Travels</h1>
+        <p>Your gateway to unforgettable journeys</p>
       </header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/destinations">Destinations</a>
+          </li>
+          <li>
+            <a href="/packages">Packages</a>
+          </li>
+          <li>
+            <a href="/contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <p>
+          Explore the world with us and create memories that last a lifetime.
+        </p>
+        <button>
+          <a to="/destinations">Discover More</a>
+        </button>
+      </main>
     </div>
   );
 }

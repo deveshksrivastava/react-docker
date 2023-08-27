@@ -22,15 +22,54 @@ https://www.youtube.com/watch?v=-ZiirF7ap5U
 
 ```
 {
-"Version": "2012-10-17",
-"Id": "PutObjPolicy",
-"Statement": [{
-  "Sid": "PublicReadGetObject",
-  "Principal": "*",
-  "Effect": "Allow",
-  "Action": "s3:GetObject",
-  "Resource": "arn:aws:s3:::react-action-s3-bucket-app/*"
- }]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicRead",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": ["s3:GetObject"],
+      "Resource": "arn:aws:s3:::your-bucket-name/*"
+    }
+  ]
 }
+
+To write a bucket policy for an S3 bucket, you can follow these steps:
+
+Access the Amazon S3 Console
+
+Go to the Amazon S3 Console and sign in to your AWS account.
+Select the Bucket
+
+From the list of buckets, select the bucket for which you want to create or edit a policy.
+3 . Go to Permissions
+
+Click on the "Permissions" tab at the top of the console.
+Edit Bucket Policy
+
+Scroll down to the "Bucket Policy" section and click on the "Edit" button.
+Write the Bucket Policy
+
+In the text editor, write your bucket policy in JSON format. The policy should define the desired permissions and access controls for the bucket.
+1. uncheck all to make s3 bucket public
+2. update the bucket policy
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicRead",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": ["s3:GetObject"],
+      "Resource": "arn:aws:s3:::your-bucket-name/*"
+    }
+  ]
+}
+
+
+Please note that writing a bucket policy requires appropriate permissions in your AWS IAM user or role. Make sure you have the necessary access rights to create or modify bucket policies.
+
+Remember to review and test your bucket policy to ensure it provides the intended access and security controls.
 
 ```
