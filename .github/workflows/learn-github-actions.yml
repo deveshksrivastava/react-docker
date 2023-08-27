@@ -2,29 +2,26 @@ name: Deploy to AWS
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ] 
   pull_request:
     branches: [ master ]
+# on: [push, workflow_dispatch] # adding manual workflow
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v3
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
-      
+          node-version: 18     #[14,16,18]
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
@@ -33,10 +30,8 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       # - run: npm run prettier
       # - run: npm run linter
-
       - name: Install dependencies
-        run: npm install
-
+        run: npm install  # npm ci
       - name: Build application
         run: npm run build --if-present
   test:
@@ -44,28 +39,24 @@ jobs:
     needs:
       - build 
     runs-on: ubuntu-latest
-
     steps:
+      - name: Starting tesing
+        run: |
+          echo "Testing stated..."
       - name: Checkout code
-        uses: actions/checkout@v2
-      
+        uses: actions/checkout@v3
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
-      
+          node-version: 18
       - name: Install dependencies
         run: npm install
-
       - name: Build application
         run: npm run build --if-present
-      
       - name: Install Unit test
         run: npm test
-
       - name: Run the tests and generate coverage report
         run: npm test -- --coverage
-      
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
@@ -77,34 +68,27 @@ jobs:
       - build 
       - test
     runs-on: ubuntu-latest
-    
     steps:
       - name: Deploy to production
         run: |
           echo "Deploying to production..."
           # Add your deployment commands here     
-
       - name: Checkout code
-        uses: actions/checkout@v2
-      
+        uses: actions/checkout@v3
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
-      
+          node-version: 18
       - name: Install dependencies
         run: npm install
-
       - name: Build application
         run: npm run build --if-present   
-
       - name: Deploy to AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
-
       - name: Deploy application
         run: |
           aws s3 sync build/ s3://react-action-s3-bucket-app --delete
