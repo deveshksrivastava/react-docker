@@ -12,10 +12,12 @@ const DestinationsPage = () => {
       <div className="destination">
         <img src="destination2.jpg" alt="Destination 2" />
         <h3>Destination 2</h3>
-        <p>Embark on an adventure like never before in this stunning location.</p>
+        <p>
+          Embark on an adventure like never before in this stunning location.
+        </p>
       </div>
     </div>
   );
-}
+};
 
 export default DestinationsPage;

@@ -13,6 +13,6 @@ const ContactPage = () => {
       </form>
     </div>
   );
-}
+};
 
 export default ContactPage;

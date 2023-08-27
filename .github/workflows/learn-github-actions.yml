@@ -2,9 +2,9 @@ name: Deploy to AWS
 
 on:
   push:
-    branches: [ master ] 
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 # on: [push, workflow_dispatch] # adding manual workflow
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18     #[14,16,18]
+          node-version: 18 #[14,16,18]
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -28,16 +28,16 @@ jobs:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-      # - run: npm run prettier
-      # - run: npm run linter
+      - run: npm run prettier
+      - run: npm run eslint
       - name: Install dependencies
-        run: npm install  # npm ci
+        run: npm install # npm ci
       - name: Build application
         run: npm run build --if-present
   test:
     name: Test
     needs:
-      - build 
+      - build
     runs-on: ubuntu-latest
     steps:
       - name: Starting tesing
@@ -65,14 +65,14 @@ jobs:
   deploy:
     name: Deploy to poduction
     needs:
-      - build 
+      - build
       - test
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to production
         run: |
           echo "Deploying to production..."
-          # Add your deployment commands here     
+          # Add your deployment commands here
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Set up Node.js
@@ -82,7 +82,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build application
-        run: npm run build --if-present   
+        run: npm run build --if-present
       - name: Deploy to AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -93,4 +93,3 @@ jobs:
         run: |
           aws s3 sync build/ s3://react-action-s3-bucket-app --delete
           aws cloudfront create-invalidation --distribution-id E2DIV2WJG1O5ZX --paths '/*'
-          

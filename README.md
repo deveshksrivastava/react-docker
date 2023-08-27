@@ -73,3 +73,16 @@ Please note that writing a bucket policy requires appropriate permissions in you
 Remember to review and test your bucket policy to ensure it provides the intended access and security controls.
 
 ```
+
+### Adding eslint
+
+yarn add eslint --save-dev
+npx eslint --init
+npm install eslint-plugin-react --save-dev
+npx eslint . //run eslint
+
+### Adding pritter
+
+npm install prettier --save-dev
+adding pritterrc.json
+npx prettier --write . // run prettier
