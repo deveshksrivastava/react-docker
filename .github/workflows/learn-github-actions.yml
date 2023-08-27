@@ -58,7 +58,7 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   deploy:
-    name: Deploy
+    name: Deploy to poduction
     needs:
       - build 
       - test
