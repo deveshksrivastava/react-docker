@@ -29,7 +29,7 @@ function App() {
           Explore the world with us and create memories that last a lifetime.
         </p>
         <button>
-          <a to="/destinations">Discover More</a>
+          <a href="/destinations">Discover More</a>
         </button>
       </main>
     </div>
