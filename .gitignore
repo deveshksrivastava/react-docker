@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+/infrastructure/s3/.terraform
+
 # production
 /build
 

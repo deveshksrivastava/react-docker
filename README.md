@@ -86,3 +86,31 @@ npx eslint . //run eslint
 npm install prettier --save-dev
 adding pritterrc.json
 npx prettier --write . // run prettier
+
+
+## Install teraform 
+https://www.youtube.com/watch?v=9-z_fSYWQNo&list=PL6XT0grm_TfgdaAjTmLb4QedMCCMQHISm&index=32
+https://learning-ocean.com/ git lession
+https://courses.learning-ocean.com/dashboard/enrolled-courses/completed-courses/
+
+1. Download and instll :https://developer.hashicorp.com/terraform/downloads?ajs_aid=96200063-f39d-4f24-b450-93a1b695285f&product_intent=terraform
+    - https://www.youtube.com/watch?v=bFgymnZk9O4&list=PL6XT0grm_TfgdaAjTmLb4QedMCCMQHISm&index=3
+2. Local Path - D:\sites\LEARN-DEVOPS\terraform-yt\teraform-app
+
+COMMAND :
+terraform provider
+terraform init       # intaling the folder
+terraform plan       # create plan
+terraform apply      # rum plan to create resources
+terraform apply --auto-approve # remove the yes command to create
+terraform providers  # telles how is the provider 
+terraform destroy    # remove resources
+terraform validate   # check the file
+terraform refresh    # brings any changes from github
+terraform show       # show terraform.tfstate file on terminal
+$ terraform fmt      # help to formate the terrafrom
+$ terraform graph | dot -Tsvg > graph.svg
+$ terraform graph | dot -Tpdf > graph.pdf
+
+hashicorm market place:
+https://github.com/marketplace?query=hashicorp&type=actions
