@@ -55,8 +55,8 @@ jobs:
           terraform apply -auto-approve
         working-directory: ${{ github.event.inputs.tfpath }}
 
-      - name: Terraform Destroy
-        run: |
-          echo "** Running Terraform Destroy**"
-          terraform destroy -auto-approve
-        working-directory: ${{ github.event.inputs.tfpath }}
+      # - name: Terraform Destroy
+      #   run: |
+      #     echo "** Running Terraform Destroy**"
+      #     terraform destroy -auto-approve
+      #   working-directory: ${{ github.event.inputs.tfpath }}
