@@ -4,8 +4,8 @@ on: [push, workflow_dispatch] # adding manual workflow
 jobs:
   info:
     runs-on: ubuntu-latest
-  steps:
-    - name: Output github context
-      run: |
-        # echo "${{ toJson(github)}}
-        echo "${{ toJson(env) }}
+    steps:
+      - name: Output github context
+        run: echo "${{ toJson(github)}}
+      - name: Output env context
+        run: echo "${{ toJson(env) }}

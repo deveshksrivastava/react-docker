@@ -1,4 +1,4 @@
-name: Terraform AWS Workflow
+name: Terraform S3 AWS Workflow
 
 on:
   workflow_call:
@@ -10,9 +10,9 @@ on:
         required: false
         default: 'infrastructure/s3'
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   tf_code_check:
